@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,13 +18,21 @@ public class Utente {
     @Id
     private String id;
 
+    private boolean isSuperUser;
+    private boolean isEnabled;
+
+    @Indexed(unique = true)
     private String username;
+
     private String password;
     private String totpSecret;
 
     private String cognome;
     private String nome;
+
+    @Indexed(unique = true)
     private String codiceFiscale;
+
     private LocalDate dataNascita;
 
     @DBRef
