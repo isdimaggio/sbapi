@@ -1,6 +1,6 @@
 package it.schoolboard.sbapi.services.impl;
 
-import it.schoolboard.sbapi.models.anagrafiche.Luogo;
+import it.schoolboard.sbapi.models.anagrafiche.ComuneStato;
 import it.schoolboard.sbapi.models.anagrafiche.Utente;
 import it.schoolboard.sbapi.repositories.anagrafiche.LuogoRepository;
 import it.schoolboard.sbapi.repositories.anagrafiche.UtenteRepository;
@@ -23,7 +23,7 @@ public class UtenteServiceMongo implements UtenteService {
         utente.setEmail(email);
         utente.setPassword(password);
 
-        Luogo luogo = new Luogo();
+        ComuneStato luogo = new ComuneStato();
         luogo.setDenominazione("Roma");
         luogo.setCodiceCatastale("H501");
         luogoRepository.save(luogo);

@@ -1,21 +1,19 @@
 package it.schoolboard.sbapi.models.tabelle;
 
+import it.schoolboard.sbapi.models.abstracts.AuditableEntity;
 import it.schoolboard.sbapi.models.anagrafiche.Docente;
-import it.schoolboard.sbapi.models.anagrafiche.Studente;
+import it.schoolboard.sbapi.models.anagrafiche.Alunno;
 import it.schoolboard.sbapi.models.generic.AnnoScolastico;
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
-
 @Data
 @Document(collection = "classi")
-public class Classe {
-
+@EqualsAndHashCode(callSuper = false)
+public class Classe extends AuditableEntity {
     @Id
     private String id;
     @DBRef
@@ -30,18 +28,7 @@ public class Classe {
     private Docente docenteCoordinatore;
 
     @DBRef
-    private Studente primoRappresentante;
+    private Alunno primoRappresentante;
     @DBRef
-    private Studente secondoRappresentante;
-
-
-    //TODO: @CreatedBy @LastModifiedBy per tracciare chi ha modificato
-
-    @CreatedDate
-    private LocalDateTime dataCreazione;
-
-    @LastModifiedDate
-    private LocalDateTime dataUltimaModifica;
-
-
+    private Alunno secondoRappresentante;
 }

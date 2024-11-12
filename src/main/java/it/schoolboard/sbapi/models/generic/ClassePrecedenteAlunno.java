@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Data
 // NOTA BENE: No @Document perchè viene fatto direttamente l'embed in 'Studente'
-public class ClassePrecedenteStudente {
+public class ClassePrecedenteAlunno {
 
     @DBRef
     private Classe classe;

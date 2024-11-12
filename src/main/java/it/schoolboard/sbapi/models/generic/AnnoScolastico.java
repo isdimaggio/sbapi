@@ -1,20 +1,20 @@
 package it.schoolboard.sbapi.models.generic;
 
+import it.schoolboard.sbapi.models.abstracts.AuditableEntity;
 import it.schoolboard.sbapi.models.anagrafiche.Utente;
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
 @Data
 @Document(collection = "anniScolastici")
-public class AnnoScolastico {
+@EqualsAndHashCode(callSuper = false)
+public class AnnoScolastico extends AuditableEntity {
     @Id
     private String id;
 
@@ -174,12 +174,4 @@ public class AnnoScolastico {
      * Abilitazione modalità di sola lettura
      */
     private boolean isModalitaSolaLettura;
-
-    //TODO: @CreatedBy @LastModifiedBy per tracciare chi ha modificato
-
-    @CreatedDate
-    private LocalDateTime dataCreazione;
-
-    @LastModifiedDate
-    private LocalDateTime dataUltimaModifica;
 }

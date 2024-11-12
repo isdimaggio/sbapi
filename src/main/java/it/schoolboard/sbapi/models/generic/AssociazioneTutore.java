@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 public class AssociazioneTutore {
 
     @DBRef
-    private Utente utente;
+    private Utente utenteTutore;
     private TipoAssociazioneTutore tipoAssociazione;
 
 }

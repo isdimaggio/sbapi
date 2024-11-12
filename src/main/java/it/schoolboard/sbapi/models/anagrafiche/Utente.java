@@ -1,19 +1,19 @@
 package it.schoolboard.sbapi.models.anagrafiche;
 
+import it.schoolboard.sbapi.models.abstracts.AuditableEntity;
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Data
 @Document(collection = "utenti")
-public class Utente {
+@EqualsAndHashCode(callSuper = false)
+public class Utente extends AuditableEntity {
 
     @Id
     private String id;
@@ -36,23 +36,15 @@ public class Utente {
     private LocalDate dataNascita;
 
     @DBRef
-    private Luogo luogoNascita;
+    private ComuneStato luogoNascita;
 
     @DBRef
-    private Luogo luogoResidenza;
+    private ComuneStato luogoResidenza;
     private String indirizzoResidenza;
 
     private String email;
     private String numeroTelefono;
 
     private String note;
-
-    //TODO: @CreatedBy e @LastModifiedBy per tracciare chi ha creato e modificato l'utente. Vedi Spring Security
-
-    @CreatedDate
-    private LocalDateTime dataCreazione;
-
-    @LastModifiedDate
-    private LocalDateTime dataUltimaModifica;
 
 }

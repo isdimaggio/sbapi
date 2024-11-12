@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.config.EnableMongoAuditing;
 import java.time.LocalDate;
 
 @SpringBootApplication
-@EnableMongoAuditing
 public class SbapiApplication {
     public static void main(String[] args) {
 

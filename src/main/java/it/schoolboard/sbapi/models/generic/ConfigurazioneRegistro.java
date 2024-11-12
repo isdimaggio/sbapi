@@ -1,19 +1,19 @@
 package it.schoolboard.sbapi.models.generic;
 
+import it.schoolboard.sbapi.models.abstracts.AuditableEditsEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.time.LocalDateTime;
 
 @Data
 @Document(collection = "configurazioneRegistro")
+@EqualsAndHashCode(callSuper = false)
 /*
  Viene inserito all'installazione del registro con dei valori di default,
  il documento può essere modificato ma NON inserito NE eliminato dall'admin.
  */
-public class ConfigurazioneRegistro {
+public class ConfigurazioneRegistro extends AuditableEditsEntity {
     @Id
     private long id; // UNICO ID VALIDO È 0
 
@@ -82,10 +82,4 @@ public class ConfigurazioneRegistro {
      * Crittografia server SMTP
      */
     private String smtpEncryption;
-
-
-    //TODO: @LastModifiedBy per tracciare chi ha modificato
-
-    @LastModifiedDate
-    private LocalDateTime dataUltimaModifica;
 }
