@@ -6,6 +6,7 @@ import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.mongodb.MongoDatabaseFactory;
 import org.springframework.data.mongodb.config.EnableMongoAuditing;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.convert.MongoConverter;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 
@@ -18,12 +19,15 @@ public class MongoConfig {
         return new AuditorAwareMockImpl();
     }
 
-    //TODO: RIVEDI QUESTO!! probabilmente esplode
+    //TODO: uploadare i file
     @Bean
-    public GridFsTemplate gridFsTemplate(MongoDatabaseFactory mongoDatabaseFactory) {
-        return new GridFsTemplate(
-                mongoDatabaseFactory, (MongoConverter) new MongoTemplate(mongoDatabaseFactory)
-        );
+    public MongoTemplate mongoTemplate(MongoDatabaseFactory mongoDatabaseFactory, MappingMongoConverter converter) {
+        return new MongoTemplate(mongoDatabaseFactory, converter);
+    }
+
+    @Bean
+    public GridFsTemplate gridFsTemplate(MongoDatabaseFactory mongoDatabaseFactory, MappingMongoConverter converter) {
+        return new GridFsTemplate(mongoDatabaseFactory, converter);
     }
 
 }

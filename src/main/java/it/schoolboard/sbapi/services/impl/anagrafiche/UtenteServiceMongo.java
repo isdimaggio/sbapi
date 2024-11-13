@@ -1,8 +1,8 @@
-package it.schoolboard.sbapi.services.impl;
+package it.schoolboard.sbapi.services.impl.anagrafiche;
 
 import it.schoolboard.sbapi.models.anagrafiche.Utente;
 import it.schoolboard.sbapi.repositories.anagrafiche.UtenteRepository;
-import it.schoolboard.sbapi.services.def.UtenteService;
+import it.schoolboard.sbapi.services.def.anagrafiche.UtenteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

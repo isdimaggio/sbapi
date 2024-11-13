@@ -1,4 +1,4 @@
-package it.schoolboard.sbapi.services.def;
+package it.schoolboard.sbapi.services.def.anagrafiche;
 
 import it.schoolboard.sbapi.models.anagrafiche.Utente;
 

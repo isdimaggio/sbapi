@@ -1,6 +1,6 @@
-package it.schoolboard.sbapi.facades;
+package it.schoolboard.sbapi.facades.anagrafiche;
 
-import it.schoolboard.sbapi.services.def.UtenteService;
+import it.schoolboard.sbapi.services.def.anagrafiche.UtenteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
