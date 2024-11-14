@@ -24,12 +24,31 @@ public class FileStorageController {
     }
 
     @GetMapping("/download/{id}")
-    public ResponseEntity<byte[]> downloadFile(@PathVariable String id) throws IOException {
+    public ResponseEntity<byte[]> downloadFile(@PathVariable String id) {
         GridFsResource pdfFile = fileStorageService.getPdf(id);
-        return ResponseEntity.ok()
-                .contentType(MediaType.parseMediaType(pdfFile.getContentType()))
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + pdfFile.getFilename() + "\"")
-                .body(pdfFile.getInputStream().readAllBytes());
+        try {
+            return ResponseEntity.ok()
+                    .contentType(MediaType.parseMediaType(pdfFile.getContentType()))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + pdfFile.getFilename() + "\"")
+                    .body(pdfFile.getInputStream().readAllBytes());
+        } catch (IOException e) {
+            return ResponseEntity.badRequest().build();
+        }
+
+    }
+
+    @GetMapping("/visualizza/{id}")
+    public ResponseEntity<byte[]> visualizzaFile(@PathVariable String id) {
+        GridFsResource pdfFile = fileStorageService.getPdf(id);
+
+        try {
+            return ResponseEntity.ok()
+                    .contentType(MediaType.parseMediaType(pdfFile.getContentType()))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + pdfFile.getFilename() + "\"")
+                    .body(pdfFile.getInputStream().readAllBytes());
+        } catch (IOException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
 }

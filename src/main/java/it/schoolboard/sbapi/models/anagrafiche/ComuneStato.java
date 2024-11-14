@@ -14,6 +14,7 @@ public class ComuneStato extends AuditableEditsEntity {
     @Id
     private String id;
 
+    //TODO: scegliere uno unique?
     private String denominazione;
     private int codiceIstat;
     private String codiceCatastale;

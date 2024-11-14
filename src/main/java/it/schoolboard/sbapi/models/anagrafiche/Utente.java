@@ -26,6 +26,7 @@ public class Utente extends AuditableEntity {
 
     private String password;
     private String totpSecret;
+    private boolean isTotpEnabled;
 
     private String cognome;
     private String nome;

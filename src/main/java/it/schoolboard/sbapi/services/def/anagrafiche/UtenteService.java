@@ -5,11 +5,11 @@ import it.schoolboard.sbapi.models.anagrafiche.Utente;
 import java.util.List;
 
 public interface UtenteService {
-    void registraUtente(Utente u);
+    void creaUtente(Utente u);
     void aggiornaUtente(Utente u);
     void rimuoviUtente(String id);
 
-    Utente login(String email, String password);
+    Utente loginViaUsername(String email, String password);
 
     Utente getUtenteById(String id);
 

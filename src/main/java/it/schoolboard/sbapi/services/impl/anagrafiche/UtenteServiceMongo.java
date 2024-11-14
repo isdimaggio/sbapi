@@ -17,7 +17,7 @@ public class UtenteServiceMongo implements UtenteService {
     private final UtenteRepository repo;
 
     @Override
-    public void registraUtente(Utente u) {
+    public void creaUtente(Utente u) {
         if (u.getId() != null) throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         repo.save(u);
     }
@@ -34,7 +34,7 @@ public class UtenteServiceMongo implements UtenteService {
     }
 
     @Override
-    public Utente login(String username, String password) {
+    public Utente loginViaUsername(String username, String password) {
         return repo.findByUsernameAndPassword(username, password)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
