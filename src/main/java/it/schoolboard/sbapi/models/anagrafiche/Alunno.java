@@ -36,12 +36,15 @@ public class Alunno extends AuditableEntity {
     private List<ClassePrecedenteAlunno> classiPrecedenti;
     private List<AssociazioneTutore> tutori;
 
-    private String codiceSidi; // non so cosa faccia, da capire
+    private String codiceSidi; // TODO: non so cosa faccia, da capire
     private int sequenzaIscrizione; // +1 per ogni bocciatura, parte da 1
     private boolean isCertificato; // bes / dsa
     private boolean isAutorizzatoFirmaPropria;
-    private String autPermEntrataPosticipata;
-    private String autPermUscitaAnticipata;
+
+    private List<String> listaAutorizzazioniGeneriche; // autorizzazioni approvate come uscite sistematiche o rel. cattolica
+
+    private boolean isAutUscAntConClasse; // autorizzazione uscita anticipata con classe (ha firmato il genitore)
+
     private boolean isConsensoUsoImmagini;
     private CensimentoAlunno censimento;
     private String note; // inserite altre cose come provenienza, titolo amm. ecc..

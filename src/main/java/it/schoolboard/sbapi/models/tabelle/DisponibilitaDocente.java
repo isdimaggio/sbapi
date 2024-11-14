@@ -1,5 +1,6 @@
 package it.schoolboard.sbapi.models.tabelle;
 
+import it.schoolboard.sbapi.models.orario.OraValidaLezione;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 

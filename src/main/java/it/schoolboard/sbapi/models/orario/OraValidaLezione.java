@@ -1,34 +1,28 @@
-package it.schoolboard.sbapi.models.cattedre;
+package it.schoolboard.sbapi.models.orario;
 
 import it.schoolboard.sbapi.models.abstracts.AuditableEntity;
-import it.schoolboard.sbapi.models.anagrafiche.Alunno;
-import it.schoolboard.sbapi.models.anagrafiche.Docente;
 import it.schoolboard.sbapi.models.generic.AnnoScolastico;
-import it.schoolboard.sbapi.models.tabelle.Materia;
+import it.schoolboard.sbapi.utilities.GiornoSettimana;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
-@Document(collection = "cattedreSostegno")
-@EqualsAndHashCode(callSuper = false)
-public class CattedraSostegno extends AuditableEntity {
+import java.time.LocalTime;
 
+@Data
+@Document(collection = "oreValideLezioni")
+@EqualsAndHashCode(callSuper = false)
+public class OraValidaLezione extends AuditableEntity {
     @Id
     private String id;
-
     @DBRef
     private AnnoScolastico annoScolastico;
 
-    @DBRef
-    private Docente docente;
+    private int oraScolastica;
+    private GiornoSettimana giornoSettimana;
 
-    @DBRef
-    private Alunno alunno;
-
-    @DBRef
-    private Materia materia;
-
+    private LocalTime oraInizio;
+    private LocalTime oraFine;
 }

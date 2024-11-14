@@ -1,8 +1,6 @@
 package it.schoolboard.sbapi.models.anagrafiche;
 
 import it.schoolboard.sbapi.models.abstracts.AuditableEntity;
-import it.schoolboard.sbapi.models.cattedre.Cattedra;
-import it.schoolboard.sbapi.models.cattedre.CattedraSostegno;
 import it.schoolboard.sbapi.models.generic.AnnoScolastico;
 import it.schoolboard.sbapi.models.tabelle.DisponibilitaDocente;
 import lombok.Data;
@@ -27,8 +25,8 @@ public class Docente extends AuditableEntity {
     private Utente utente;
 
     private boolean isStaff;
+    private boolean isSostegno;
 
     private List<DisponibilitaDocente> disponibilita;
-    private List<Cattedra> cattedre;
-    private List<CattedraSostegno> cattedreSostegno;
+
 }

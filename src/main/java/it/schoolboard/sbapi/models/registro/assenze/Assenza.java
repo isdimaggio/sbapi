@@ -1,20 +1,21 @@
-package it.schoolboard.sbapi.models.cattedre;
+package it.schoolboard.sbapi.models.registro.assenze;
 
 import it.schoolboard.sbapi.models.abstracts.AuditableEntity;
 import it.schoolboard.sbapi.models.anagrafiche.Alunno;
 import it.schoolboard.sbapi.models.anagrafiche.Docente;
 import it.schoolboard.sbapi.models.generic.AnnoScolastico;
-import it.schoolboard.sbapi.models.tabelle.Materia;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
+
 @Data
-@Document(collection = "cattedreSostegno")
+@Document(collection = "assenze")
 @EqualsAndHashCode(callSuper = false)
-public class CattedraSostegno extends AuditableEntity {
+public class Assenza extends AuditableEntity {
 
     @Id
     private String id;
@@ -23,12 +24,17 @@ public class CattedraSostegno extends AuditableEntity {
     private AnnoScolastico annoScolastico;
 
     @DBRef
-    private Docente docente;
-
-    @DBRef
     private Alunno alunno;
 
+    private LocalDate data;
+    private boolean isGiustificata;
+    private boolean isGiustificataDaGenitore;
+    private boolean ricevutaAmmonizione; // giustifica in ritardo
+    private String motivoGiustificazione;
+    private LocalDate dataGiustificazione;
+
     @DBRef
-    private Materia materia;
+    private Docente docenteGiustificatore;
+
 
 }
