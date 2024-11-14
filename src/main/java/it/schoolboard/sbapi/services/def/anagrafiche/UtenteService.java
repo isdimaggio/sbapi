@@ -9,10 +9,10 @@ public interface UtenteService {
     void aggiornaUtente(Utente u);
     void rimuoviUtente(String id);
 
+    Utente getUtenteByUsername(String username);
     Utente loginViaUsername(String email, String password);
-
     Utente getUtenteById(String id);
-
     Utente getUtenteByCF(String cf);
+
     List<Utente> getAllUtenti();
 }

@@ -1,7 +1,7 @@
 package it.schoolboard.sbapi.models.registro.osservazioni;
 
 import it.schoolboard.sbapi.models.abstracts.AuditableEntity;
-import it.schoolboard.sbapi.models.anagrafiche.Alunno;
+import it.schoolboard.sbapi.models.anagrafiche.Studente;
 import it.schoolboard.sbapi.models.anagrafiche.Docente;
 import it.schoolboard.sbapi.models.generic.AnnoScolastico;
 import lombok.Data;
@@ -27,7 +27,7 @@ public class OsservazioneSistematica extends AuditableEntity {
     private Docente docente;
 
     @DBRef
-    private Alunno alunno;
+    private Studente studente;
 
     private String testo;
     private LocalDate data;

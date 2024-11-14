@@ -18,7 +18,10 @@ public class UtenteServiceMongo implements UtenteService {
 
     @Override
     public void creaUtente(Utente u) {
+        // Nella creazione bisogna verificare che ogni campo che presenta un index sia univoco
         if (u.getId() != null) throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        if (repo.findByCodiceFiscale(u.getCodiceFiscale()).isPresent()) throw new ResponseStatusException(HttpStatus.CONFLICT, "Codice fiscale già presente");
+        if (repo.findByUsername(u.getUsername()).isPresent()) throw new ResponseStatusException(HttpStatus.CONFLICT, "Username già presente");
         repo.save(u);
     }
 
@@ -31,6 +34,11 @@ public class UtenteServiceMongo implements UtenteService {
     @Override
     public void rimuoviUtente(String id) {
         repo.deleteById(id);
+    }
+
+    @Override
+    public Utente getUtenteByUsername(String username) {
+        return repo.findByUsername(username).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Override

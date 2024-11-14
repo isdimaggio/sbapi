@@ -1,7 +1,7 @@
 package it.schoolboard.sbapi.models.registro.assenze;
 
 import it.schoolboard.sbapi.models.abstracts.AuditableEntity;
-import it.schoolboard.sbapi.models.anagrafiche.Alunno;
+import it.schoolboard.sbapi.models.anagrafiche.Studente;
 import it.schoolboard.sbapi.models.generic.AnnoScolastico;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,7 +24,7 @@ public class PresenzaForzata extends AuditableEntity {
     private AnnoScolastico annoScolastico;
 
     @DBRef
-    private Alunno alunno;
+    private Studente studente;
 
     private String motivo;
 

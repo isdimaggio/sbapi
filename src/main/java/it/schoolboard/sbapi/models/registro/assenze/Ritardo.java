@@ -1,7 +1,7 @@
 package it.schoolboard.sbapi.models.registro.assenze;
 
 import it.schoolboard.sbapi.models.abstracts.AuditableEntity;
-import it.schoolboard.sbapi.models.anagrafiche.Alunno;
+import it.schoolboard.sbapi.models.anagrafiche.Studente;
 import it.schoolboard.sbapi.models.anagrafiche.Docente;
 import it.schoolboard.sbapi.models.generic.AnnoScolastico;
 import lombok.Data;
@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Data
@@ -25,10 +26,10 @@ public class Ritardo extends AuditableEntity {
     private AnnoScolastico annoScolastico;
 
     @DBRef
-    private Alunno alunno;
-    private LocalTime oraEntrata;
+    private Studente studente;
 
-    private LocalDate data;
+    private LocalDateTime dataOraIngresso;
+
     private boolean isGiustificata;
     private boolean isGiustificataDaGenitore;
     private boolean ricevutaAmmonizione; // giustifica in ritardo
@@ -37,6 +38,5 @@ public class Ritardo extends AuditableEntity {
 
     @DBRef
     private Docente docenteGiustificatore;
-
 
 }

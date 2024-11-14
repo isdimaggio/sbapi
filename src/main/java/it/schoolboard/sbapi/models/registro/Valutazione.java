@@ -1,7 +1,7 @@
 package it.schoolboard.sbapi.models.registro;
 
 import it.schoolboard.sbapi.models.abstracts.AuditableEntity;
-import it.schoolboard.sbapi.models.anagrafiche.Alunno;
+import it.schoolboard.sbapi.models.anagrafiche.Studente;
 import it.schoolboard.sbapi.models.generic.AnnoScolastico;
 import it.schoolboard.sbapi.utilities.TipoValutazione;
 import lombok.Data;
@@ -24,7 +24,7 @@ public class Valutazione extends AuditableEntity {
     private Lezione lezione;
 
     @DBRef
-    private Alunno alunno;
+    private Studente studente;
 
     private TipoValutazione tipoValutazione;
 

@@ -36,12 +36,12 @@ public class ComuneStatoServiceMongo implements ComuneStatoService {
 
     @Override
     public ComuneStato getComuneStatoById(String id) {
-        return repo.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return repo.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "ComuneStato non trovato"));
     }
 
     @Override
     public ComuneStato getComuneStatoByDenominazione(String denominazione) {
-        return repo.findByDenominazione(denominazione).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return repo.findByDenominazione(denominazione).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "ComuneStato non trovato"));
     }
 
     @Override

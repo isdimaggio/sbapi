@@ -1,4 +1,4 @@
-package it.schoolboard.sbapi.repositories.tabelle;
+package it.schoolboard.sbapi.repositories.orario;
 
 import it.schoolboard.sbapi.models.orario.OraValidaLezione;
 import org.springframework.data.mongodb.repository.MongoRepository;

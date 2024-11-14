@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 // NOTA BENE: No @Document perchè viene fatto direttamente l'embed in 'Studente'
-public class CensimentoAlunno {
+public class CensimentoStudente {
 
     private PreferenzaCensimento comunicazioneDatiAndamento;
     private PreferenzaCensimento accessoRegistroElettronico;

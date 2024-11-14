@@ -2,7 +2,7 @@ package it.schoolboard.sbapi.models.tabelle;
 
 import it.schoolboard.sbapi.models.abstracts.AuditableEntity;
 import it.schoolboard.sbapi.models.anagrafiche.Docente;
-import it.schoolboard.sbapi.models.anagrafiche.Alunno;
+import it.schoolboard.sbapi.models.anagrafiche.Studente;
 import it.schoolboard.sbapi.models.generic.AnnoScolastico;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,7 +28,7 @@ public class Classe extends AuditableEntity {
     private Docente docenteCoordinatore;
 
     @DBRef
-    private Alunno primoRappresentante;
+    private Studente primoRappresentante;
     @DBRef
-    private Alunno secondoRappresentante;
+    private Studente secondoRappresentante;
 }

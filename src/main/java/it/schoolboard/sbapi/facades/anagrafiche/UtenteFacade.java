@@ -26,8 +26,9 @@ public class UtenteFacade {
 
     public void creaUtente(CreaUtenteRequest request) {
         Utente u = utenteMapper.fromCreaUtenteRequest(request);
-        u.setLuogoNascita(comuneStatoService.getComuneStatoByDenominazione(request.getLuogoNascita()));
-        u.setLuogoResidenza(comuneStatoService.getComuneStatoByDenominazione(request.getLuogoResidenza()));
+
+        if (!request.getLuogoNascita().isBlank()) u.setLuogoNascita(comuneStatoService.getComuneStatoByDenominazione(request.getLuogoNascita()));
+        if (!request.getLuogoResidenza().isBlank()) u.setLuogoResidenza(comuneStatoService.getComuneStatoByDenominazione(request.getLuogoResidenza()));
 
         utenteService.creaUtente(u);
     }

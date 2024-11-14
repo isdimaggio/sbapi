@@ -1,7 +1,7 @@
 package it.schoolboard.sbapi.models.cattedre;
 
 import it.schoolboard.sbapi.models.abstracts.AuditableEntity;
-import it.schoolboard.sbapi.models.anagrafiche.Alunno;
+import it.schoolboard.sbapi.models.anagrafiche.Studente;
 import it.schoolboard.sbapi.models.anagrafiche.Docente;
 import it.schoolboard.sbapi.models.generic.AnnoScolastico;
 import it.schoolboard.sbapi.models.tabelle.Materia;
@@ -26,7 +26,7 @@ public class CattedraSostegno extends AuditableEntity {
     private Docente docente;
 
     @DBRef
-    private Alunno alunno;
+    private Studente studente;
 
     @DBRef
     private Materia materia;

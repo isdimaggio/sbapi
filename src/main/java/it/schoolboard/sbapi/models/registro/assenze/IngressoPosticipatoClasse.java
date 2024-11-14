@@ -1,8 +1,10 @@
 package it.schoolboard.sbapi.models.registro.assenze;
 
 import it.schoolboard.sbapi.models.abstracts.AuditableEntity;
+import it.schoolboard.sbapi.models.anagrafiche.Docente;
 import it.schoolboard.sbapi.models.generic.AnnoScolastico;
 import it.schoolboard.sbapi.models.tabelle.Classe;
+import it.schoolboard.sbapi.utilities.OrarioScolastico;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
@@ -10,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document(collection = "ingressiPosticipatiClassi")
+@Document(collection = "ingressiPosticipatiClasse")
 @EqualsAndHashCode(callSuper = false)
 public class IngressoPosticipatoClasse extends AuditableEntity {
 
@@ -24,7 +26,10 @@ public class IngressoPosticipatoClasse extends AuditableEntity {
     private Classe classe;
 
     @DBRef
-    private int oraScolasticaIngresso;
+    private Docente docenteAutorizzante;
+
+    //TODO: per ora gestito con un semplice enum, da rivedere
+    private OrarioScolastico orarioScolastico;
 
 
 }

@@ -1,6 +1,6 @@
 package it.schoolboard.sbapi.models.registro.assenze;
 
-import it.schoolboard.sbapi.models.anagrafiche.Alunno;
+import it.schoolboard.sbapi.models.anagrafiche.Studente;
 import it.schoolboard.sbapi.models.generic.AnnoScolastico;
 import it.schoolboard.sbapi.models.generic.DataNumeroOre;
 import lombok.Data;
@@ -23,7 +23,7 @@ public class DerogaAssenza {
     private AnnoScolastico annoScolastico;
 
     @DBRef
-    private Alunno alunno;
+    private Studente studente;
 
     private String motivo;
 

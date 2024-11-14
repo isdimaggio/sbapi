@@ -3,7 +3,7 @@ package it.schoolboard.sbapi.models.anagrafiche;
 import it.schoolboard.sbapi.models.abstracts.AuditableEntity;
 import it.schoolboard.sbapi.models.generic.AnnoScolastico;
 import it.schoolboard.sbapi.models.generic.AssociazioneTutore;
-import it.schoolboard.sbapi.models.generic.CensimentoAlunno;
+import it.schoolboard.sbapi.models.generic.CensimentoStudente;
 import it.schoolboard.sbapi.models.generic.ClassePrecedenteAlunno;
 import it.schoolboard.sbapi.models.tabelle.Classe;
 import it.schoolboard.sbapi.models.tabelle.GruppoRitardoAlunno;
@@ -16,9 +16,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
 
 @Data
-@Document(collection = "alunni")
+@Document(collection = "studenti")
 @EqualsAndHashCode(callSuper = false)
-public class Alunno extends AuditableEntity {
+public class Studente extends AuditableEntity {
     @Id
     private String id;
 
@@ -46,6 +46,6 @@ public class Alunno extends AuditableEntity {
     private boolean isAutUscAntConClasse; // autorizzazione uscita anticipata con classe (ha firmato il genitore)
 
     private boolean isConsensoUsoImmagini;
-    private CensimentoAlunno censimento;
+    private CensimentoStudente censimento;
     private String note; // inserite altre cose come provenienza, titolo amm. ecc..
 }
